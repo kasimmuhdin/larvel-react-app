@@ -6,6 +6,7 @@ export default function Primesum(){
 
     const [num, setnum] = useState(7);
 
+
     function tosum(){
         if(num < 2){
             return 0;

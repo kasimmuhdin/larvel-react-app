@@ -1,11 +1,19 @@
 
  import { useState } from "react";
+import './index.css';
 
 export default function InventoryApp() {
   const [inventory, setInventory] = useState([]);
-
+ const styless = {
+      backgroundColor: "blueviolet",
+      padding: "20px"
+    }
+    const buttons = {
+      margin: "4px"
+    }
   // ✅ Find product index (case-insensitive)
   function findProductIndex(productName) {
+   
     return inventory.findIndex(
       (product) => product.name.toLowerCase() === productName.toLowerCase()
     );
@@ -54,16 +62,17 @@ export default function InventoryApp() {
   }
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div style={styless} className="newone">
+      <div className="buttons" style={buttons}>
       <button onClick={() => addProduct({ name: "banana", quantity: 7 })}>
         Add 7 bananas
       </button>
       <button onClick={() => addProduct({ name: "apple", quantity: 7 })}>
         Add 7 apples
-      </button>
+      </button><br />
       <button onClick={() => removeProduct("apple", 3)}>Remove 3 apples</button>
       <button onClick={() => removeProduct("banana", 3)}>Remove 3 bananas</button>
-
+</div>
       <h3>Current Inventory:</h3>
       <ul>
         {inventory.map((item, index) => (
